@@ -6,15 +6,16 @@ group 'com.netty.study'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
-/*
 
-group: 'junit', name: 'junit', version: '4.12' 或
-*/
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'io.netty', name: 'netty-all', version: '4.1.10.Final'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
