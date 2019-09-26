@@ -1,5 +1,5 @@
 websocket由http建立连接，然后升级为websocket.websocket是长连接
-
+连接建立以后，如果关闭wifi这个时候是感知不到的。只能通过心跳来确认是否存活
 
 ## websocket属性
 
