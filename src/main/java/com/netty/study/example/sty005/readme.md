@@ -1,3 +1,6 @@
+websocket由http建立连接，然后升级为websocket.websocket是长连接
+
+
 ## websocket属性
 
 | 属性                  | 描述                                                         |

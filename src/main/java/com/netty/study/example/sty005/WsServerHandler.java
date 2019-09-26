@@ -19,15 +19,18 @@ public class WsServerHandler extends SimpleChannelInboundHandler<TextWebSocketFr
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        super.handlerAdded(ctx);
+        System.out.println("handlerAdded:" + ctx.channel().id().asLongText());
     }
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
-        super.handlerRemoved(ctx);
+            System.out.println("handlerAdded:"+ctx.channel().id().asLongText());
+
     }
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        System.out.println("服务端异常");
+        ctx.close();
         super.exceptionCaught(ctx, cause);
     }
 }

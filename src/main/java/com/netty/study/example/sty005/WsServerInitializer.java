@@ -21,7 +21,7 @@ public class WsServerInitializer extends ChannelInitializer<SocketChannel> {
         //发起方称为 ping 响应方称为 pong  frame   指定访问路径
         pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
 
-        pipeline.addLast(null);
+        pipeline.addLast(new WsServerHandler());
 
 
     }

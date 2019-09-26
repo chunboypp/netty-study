@@ -31,7 +31,7 @@ public class WsServer {
 
             bootstrap.group(boss,work).channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
-                    .childHandler(null);
+                    .childHandler(new WsServerInitializer());
            // bootstrap.bind(new InetSocketAddress(88909)) 同直接绑定端口
 
             ChannelFuture future = bootstrap.bind(8899).sync();

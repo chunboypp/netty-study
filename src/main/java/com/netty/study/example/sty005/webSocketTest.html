@@ -2,41 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>websocket 客户端</title>
 </head>
 <body>
+<textarea id="sendmsg" style="width: 200px;height:200px;"></textarea>
+<input type="button" value="发送" onclick="sendMsg();"></input>
+<h3>服务器相应数据</h3>
 
-<input></input>
-
-<textarea id="rspContent"></textarea>
+<textarea id="recvmsg" style="width:200px;height:200px;"></textarea>
+<input type="button" value="清空数据" onclick="clearMsg();"></input>
 
 </body>
 <script type="text/javascript">
-    function WebSocketTest()
-    {
-        if ("WebSocket" in window)
-        {
-            alert("您的浏览器支持 WebSocket!");
 
+    function clearmsg(){
+        document.getElementById("recvmsg").value = '';
+    }
+    function sendMsg()
+
+    {
+
+        if (window.WebSocket)
+        {
+
+            var recvobj = document.getElementById("recvmsg");
             // 打开一个 web socket
-            var ws = new WebSocket("ws://localhost:9998/echo");
-            ws.onopen = function() {
+            var ws = new WebSocket("ws://localhost:8899/ws");
+            ws.onopen = function(event) {
                 // Web Socket 已连接上，使用 send() 方法发送数据
-                ws.send("发送数据");
-                alert("数据发送中...");
+                recvobj.value = ta.value + "'\n" + event.data;
             };
 
             ws.onmessage = function (evt) {
-                var received_msg = evt.data;
-                alert("数据已接收...");
+                recvobj.value = ta.value + "'\n 连接开启" ;
             };
             ws.onclose = function() {
                 // 关闭 websocket
-                alert("连接已关闭...");
+                recvobj.value = ta.value + "'\n 连接关闭" ;
             };
+
+            if(ws.readyState == WebSocket.OPEN){
+                ws.send(document.getElementById("sendmsg").value);
+            }
         } else {
             // 浏览器不支持 WebSocket
             alert("您的浏览器不支持 WebSocket!");
+            return;
         }
     }
 </script>
