@@ -18,7 +18,7 @@ public class MyChatClient {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(eventLoopGroup)
                     .channel(NioSocketChannel.class)
-                    .handler(null);
+                    .handler(new MyChartClientInitializer());
             ChannelFuture future = bootstrap.bind("localhost", 8899).sync();
             Channel channel = future.channel();
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
