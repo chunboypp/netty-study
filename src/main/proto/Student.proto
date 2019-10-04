@@ -12,9 +12,9 @@ service StudentService{
 
     rpc getStudentsByAge(StudentRequest) returns (stream StudentResponse){}
 
-    rpc getStudentsWrapperByAges(stream StudentRequest) returns (StudentResponseList)
+    rpc getStudentsWrapperByAges(stream StudentRequest) returns (StudentResponseList){}
 
-    rpc BiTalk(stream StreamRequest) returns (stream StreamResponse)
+    rpc BiTalk(stream StreamRequest) returns (stream StreamResponse){}
 }
 
 
