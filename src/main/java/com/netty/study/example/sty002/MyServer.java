@@ -10,7 +10,14 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class MyServer {
 
     public static void main(String[] args) throws Exception{
+        /**
+         * 事件循环组。底层就是一个死循环。接收请求
+         * 构造函数中传入1，标示就是一个线程
+         */
         EventLoopGroup boss = null;
+        /**
+         * 处理请求
+         */
         EventLoopGroup work = null;
 
         try {
