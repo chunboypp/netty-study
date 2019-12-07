@@ -94,7 +94,7 @@ public class JavaNioServer {
 
                                     writeBuffer.put((sendKey + "=" + recvString).getBytes());
 
-                                    writeBuffer.flip()
+//                                    writeBuffer.flip()
 
                                     entry.getValue().write(writeBuffer);
 

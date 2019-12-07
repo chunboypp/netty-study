@@ -71,4 +71,8 @@ socket handle上
 6inition dispathchar 会回调事件处理的handle_events回调方法来执行特定与应用的功能（开发者自己所编写的功能），从而相应这个事件。所发生事件类型可  
 以作为该方法参数并被该方法内部使用来执行额外的特定于服务的分离与分发
 
-netty中通过 accpttor 将 boss work和 sub work关联起来
+netty中通过 accpttor 将 boss work和 sub work关联起来  
+
+
+
+
