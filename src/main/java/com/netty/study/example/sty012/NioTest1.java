@@ -2,7 +2,7 @@ package com.netty.study.example.sty012;
 
 
 import io.opencensus.internal.DefaultVisibilityForTesting;
-import org.junit.jupiter.api.Test;
+
 
 import java.nio.IntBuffer;
 import java.security.SecureRandom;
@@ -31,7 +31,7 @@ public class NioTest1 {
 
 
     }
-    @Test
+//    @Test
     public void test1(){
         IntBuffer intBuffer = IntBuffer.allocate(10);
 
