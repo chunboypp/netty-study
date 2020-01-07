@@ -58,3 +58,21 @@ select poll epoll 等。在java nio中，对应的组件是selector,对应的阻
 5 initiation dispathcher(初始分发器)：事件是就是reactor角色。它本身定义了一些规范，这些规范用于控制事件的调度方式，同时又提供  
 了应用进行事件处理器的注册 删除等设置。它本身是整个事件处理器的核心所在，initiation dispatcher 回通过同步事件分离器来恩哥爱事件的发生。  
 一旦事件发生，initiation dispathcher 首先回分离出每一个事件，然后调用事件处理器，最后调用相关的回调方法来处理这些事件。  
+
+reactor模式的流程：
+1当应用向 inition dispathchar注册具体事件处理器时，应用会标识出事件处理器希望 inition dispathchar在某个事件发生时向其通知的该事件，该事件与handle关联  
+2 inition dispathchar会要求每个事件处理器向其传递内部的handle.该handle向操作系统标识了事件处理器。
+3 当所有的事件处理器注册完毕后，应用会调用handle events方法类启动inition dispathchar的事件循环。这时，inition dispathchar会将每个注册的事件管理器  
+的handle合并起来，并使用同步事件分离器等待这些事件的发生。比如说，tcp协议层会使用select同步事件分离器操作类等待客户端发送的数据到达连接的  
+socket handle上  
+4 当与某个事件源对应的handle变为ready状态时（比如说 tcp socket 变为等待读状态时），同步事件分离器就会通知inition dispathchar。  
+5inition dispathchar会触发事件处理器的回调方法，从而响应这个处于ready状态的handle.当事件发生时，inition dispathchar 会将被事件激活的handle  
+作为 kwy 来寻找并分发给恰当的事件处理器的回调方法。  
+6inition dispathchar 会回调事件处理的handle_events回调方法来执行特定与应用的功能（开发者自己所编写的功能），从而相应这个事件。所发生事件类型可  
+以作为该方法参数并被该方法内部使用来执行额外的特定于服务的分离与分发
+
+netty中通过 accpttor 将 boss work和 sub work关联起来  
+
+
+
+
