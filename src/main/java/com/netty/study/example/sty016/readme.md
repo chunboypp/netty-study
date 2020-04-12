@@ -113,5 +113,7 @@ heap bybuffer
    2 数据解码时，一定要判断缓冲（bytebuf） 中的数据是否足够，否则将会产生一些问题  
    例如：long  需要判断是否 bytetuf  > 8
    
-   replyingDecoder
+   replyingDecoder  
+   
+   
    

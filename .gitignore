@@ -1,2 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/*
+/.gradle/
+/out/production/classes/com/netty/study/example/
+/build/

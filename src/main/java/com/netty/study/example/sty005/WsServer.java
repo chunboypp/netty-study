@@ -1,6 +1,7 @@
 package com.netty.study.example.sty005;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -36,6 +37,7 @@ public class WsServer {
 
             ChannelFuture future = bootstrap.bind(8899).sync();
             future.channel().close();
+            ByteBuf
         } finally {
             boss.shutdownGracefully();
             work.shutdownGracefully();
