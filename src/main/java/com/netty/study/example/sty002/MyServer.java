@@ -6,6 +6,8 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 public class MyServer {
 
@@ -15,6 +17,7 @@ public class MyServer {
          * 构造函数中传入1，标示就是一个线程
          */
         EventLoopGroup boss = null;
+        System.out.println("====");
         /**
          * 处理请求
          */
@@ -24,12 +27,13 @@ public class MyServer {
             boss = new NioEventLoopGroup();
             work = new NioEventLoopGroup();
             ServerBootstrap serverBootstrap = new ServerBootstrap();
-            serverBootstrap.group(boss,work)
+            serverBootstrap.group(boss, work)
                     .channel(NioServerSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new MyServerInitializer());
+
               ChannelFuture future =  serverBootstrap.bind(8899).sync();
             future.channel().closeFuture().sync();
-
         } finally {
             boss.shutdownGracefully();
             work.shutdownGracefully();
