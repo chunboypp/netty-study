@@ -1,5 +1,6 @@
 package com.netty.study.example.sty002;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelInboundHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -20,6 +21,7 @@ public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
+        ByteBuf
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,0,4,0,4));
         pipeline.addLast(new LengthFieldPrepender(4));

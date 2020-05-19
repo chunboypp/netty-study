@@ -7,7 +7,7 @@
 
 通过装饰模式对流对象进行扩展。区别于继承，通过组合的方式实现对象类的扩展
 
-java.io最为核心的概念是流stream，面向流编程。java中一个流要么是深入流要么是输出流
+java.io最为核心的概念是流stream，面向流编程。java中一个流要么是输入流要么是输出流
 
 java.nio中的3个概念： selector channel buffer.在nio中是面向block 编程的或着缓冲区buffer编程的
     buffer本身是一块内存，底层是一个数组，读写都是通过buffer来实现的。
