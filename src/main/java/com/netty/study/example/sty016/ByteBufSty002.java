@@ -2,6 +2,7 @@ package com.netty.study.example.sty016;
 
 import com.google.common.base.Charsets;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.buffer.Unpooled;
 
 import java.nio.charset.Charset;
@@ -10,6 +11,7 @@ public class ByteBufSty002 {
 
     public static void main(String[] args){
         ByteBuf byteBuf = Unpooled.copiedBuffer("hello  world", Charset.forName("utf-8"));
+
         //如果为真，则标示是一个堆上缓冲。
         if(byteBuf.hasArray()){
             byte[] content = byteBuf.array();
