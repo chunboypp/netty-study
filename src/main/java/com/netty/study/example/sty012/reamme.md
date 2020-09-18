@@ -49,4 +49,4 @@ nio读取文件的3个步骤：
    3将数据从filechannel写入到buffer
    
  相对方法：考虑 positont 和limit
- 绝对方法： 忽律 position 和limit
+ 绝对方法： 忽略 position 和limit

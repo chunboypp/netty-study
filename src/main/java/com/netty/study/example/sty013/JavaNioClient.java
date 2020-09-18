@@ -100,6 +100,8 @@ public class JavaNioClient {
                             e.printStackTrace();
                         }
                     });
+                    //需要清理掉
+                    selectionKeySet.clear();
 
                 }
     }

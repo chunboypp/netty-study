@@ -12,7 +12,7 @@ git clone -b 版本  地址
  对gradle版本有要求的时候，此命令
  
  gradle clean build
- 如果使用 gradle wrapper命令，则会生成 对应的gradlew文件，其它写作开发者，从git上拉取代码后，因为自己本机没有装
+ 如果使用 gradle wrapper命令，则会生成 对应的gradlew文件，其它协作开发者，从git上拉取代码后，因为自己本机没有装
  gradle，但是有这些文件，通过gradle wrapper构建时，会去自动下载gradle
     gradlew
     gradlew.bat
@@ -31,7 +31,7 @@ gradle clean build /会默认去用户目录 ./gradle/dists 下查找使用的gr
     distributionType = 'all'
  }
  
- 由项目创建人进行队形wrapper文件创建，其它项目人员直接使用gradle wrapper进行构建
+ 由项目创建人进行对应wrapper文件创建，其它项目人员直接使用gradle wrapper进行构建
  通过 shasum -a 256 gradle-3.4-all.zip 生成对应的校验和
  在 gradle-wrapper.properties 中指定：distributionSha256Sum=校验码
  如果下载下来的gradle 生成的校验码和指定的校验码不一致则会下载失败，安全考虑
@@ -46,7 +46,7 @@ gradle clean build /会默认去用户目录 ./gradle/dists 下查找使用的gr
  rpc 方法名（参数必须是 message类型）
   }
   
-  只要客户端向服务器端发送流式数据，这种调用都是异步的。只能式异步的
+  只要客户端向服务器端发送流式数据，这种调用都是异步的。只能是异步的
   
   到底使用那种调用方式：根据场景设定
   

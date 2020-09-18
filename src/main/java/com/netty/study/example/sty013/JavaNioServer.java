@@ -49,6 +49,7 @@ public class JavaNioServer {
             //jdk8的写法
             selectionKeySet.forEach(selectionKey -> {
 
+//                selectionKey.attach()
                  SocketChannel client = null;
                 try {
                     if(selectionKey.isAcceptable()){
