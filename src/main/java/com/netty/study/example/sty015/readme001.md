@@ -31,8 +31,8 @@
   ctx 之前的handler则不会进行调用
   
   netty两种消息发送方式：
-  直接写入到channel-消息会从ChannelPipeline的末尾开始流动
-  只写写入到ChannleHandlerContext-消息会从ChannelPipeline下一个hanler开始执行,也意味着会代码的调用路径更短，
+  channle.writeandflush()直接写入到channel-消息会从ChannelPipeline的末尾开始流动
+  ctx.writeandflush()只写写入到ChannleHandlerContext-消息会从ChannelPipeline下一个hanler开始执行,也意味着会代码的调用路径更短，
     性能更高，前提是不需要流经所有的handler
   
   一个channle会关联一个channelpipeline,
